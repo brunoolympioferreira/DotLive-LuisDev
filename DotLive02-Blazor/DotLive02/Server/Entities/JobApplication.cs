@@ -2,9 +2,9 @@
 
 public class JobApplication
 {
-    public JobApplication(Guid id, string userId, Guid jobId)
+    public JobApplication(string userId, Guid jobId)
     {
-        Id = id;
+        Id = Guid.NewGuid();
         UserId = userId;
         JobId = jobId;
 

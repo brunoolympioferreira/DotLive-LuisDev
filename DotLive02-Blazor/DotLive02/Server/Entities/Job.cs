@@ -2,7 +2,7 @@
 
 public class Job
 {
-    public Job(Guid id, string title, string description, string company, string location, decimal salary, Guid createdByUser)
+    public Job(string title, string description, string company, string location, decimal salary, Guid createdByUser)
     {
         Id = Guid.NewGuid();
         Title = title;
