@@ -62,7 +62,7 @@ public class JobsController : ControllerBase
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        var job = new Job(model.Title, model.Description, model.Company, model.Location, model.Salary, new Guid(userId);
+        var job = new Job(model.Title, model.Description, model.Company, model.Location, model.Salary, new Guid(userId));
 
         await _context.Jobs.AddAsync(job);
         await _context.SaveChangesAsync();

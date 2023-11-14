@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotLive02.Server", "DotLive02\Server\DotLive02.Server.csproj", "{C6DBDA26-E237-427D-9E9C-E33828647E12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotLive02.Server", "DotLive02\Server\DotLive02.Server.csproj", "{C6DBDA26-E237-427D-9E9C-E33828647E12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotLive02.Client", "DotLive02\Client\DotLive02.Client.csproj", "{C361A12B-E00F-435A-A426-D1C0564C239D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotLive02.Client", "DotLive02\Client\DotLive02.Client.csproj", "{C361A12B-E00F-435A-A426-D1C0564C239D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotLive02.Shared", "DotLive02\Shared\DotLive02.Shared.csproj", "{98FD1117-145E-4069-BCC5-D3E52655321D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotLive02.Shared", "DotLive02\Shared\DotLive02.Shared.csproj", "{98FD1117-145E-4069-BCC5-D3E52655321D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
