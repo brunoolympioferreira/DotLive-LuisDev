@@ -32,7 +32,7 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
 
             e.HasMany(j => j.JobApllications)
                 .WithOne(ja => ja.Job)
-                .HasForeignKey(ja => ja.UserId);
+                .HasForeignKey(ja => ja.JobId);
         });
 
         builder.Entity<JobApplication>(e =>

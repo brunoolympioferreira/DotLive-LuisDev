@@ -55,6 +55,8 @@
                 <InputNumber class="form-control" @bind-Value="@model.Salary" />
             </div>
         </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Salvar</button>
     </EditForm>
 </div>
 
@@ -73,7 +75,7 @@
     private async Task HandleValidSubmit()
     {
         var json = JsonSerializer.Serialize(model);
-        var request = new HttpRequestMessage(HttpMethod.Put, "api/jobs");
+        var request = new HttpRequestMessage(HttpMethod.Put, $"api/jobs/{Id}");
 
         request.Content = new StringContent(json, Encoding.UTF8);
         request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
