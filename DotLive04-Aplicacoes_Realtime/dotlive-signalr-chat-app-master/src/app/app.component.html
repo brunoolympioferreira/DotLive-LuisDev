@@ -1,0 +1,55 @@
+<div class="container">
+  <h1 class="text-center">Sala de Conversa</h1>
+
+  <form [formGroup]="groupForm">
+    <div class="form-group">
+      <label form="user">Nome</label>
+      <input
+        placeholder="Digite seu nome"
+        type="text"
+        name="user"
+        formControlName="user"
+        id="user"
+        class="form-control"
+        />
+    </div>
+
+    <div class="form-group">
+      <label for="group">Nome do Grupo</label>
+      <input
+        placeholder="Digite o nome do grupo"
+        type="text"
+        name="group"
+        formControlName="group"
+        id="group"
+        class="form-control"
+      />
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3"
+      (click)="setGroup()">Entrar no Grupo</button>
+  </form>
+
+  <form [formGroup]="newMessageForm" *ngIf="isGroupSet">
+    <div class="form-group">
+      <label form="message">Mensagem</label>
+      <input
+        placeholder="Digite sua mensagem"
+        type="text"
+        name="message"
+        formControlName="message"
+        id="message"
+        class="form-control"
+        />
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3"
+      (click)="sendMessage()">Entrar</button>
+  </form>
+
+  <div class="chat-container" *ngIf="isGroupSet">
+    <div *ngFor="let msg of messages">
+      <p><strong>{{msg.user}}: </strong>{{msg.message}}</p>
+    </div>
+  </div>
+</div>

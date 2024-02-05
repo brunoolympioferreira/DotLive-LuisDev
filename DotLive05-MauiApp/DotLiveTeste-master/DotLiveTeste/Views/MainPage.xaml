@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DotLiveTeste.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:iOS="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:models="clr-namespace:DotLiveTeste.Models"
+    xmlns:vm="clr-namespace:DotLiveTeste.ViewModels"
+    Title="Seu Zé Hamburgueria"
+    iOS:Page.UseSafeArea="True"
+    x:DataType="vm:MainViewModel"
+    BackgroundColor="White">
+
+    <Grid RowDefinitions="*,auto">
+        <CollectionView Margin="10,10,10,80" ItemsSource="{Binding Products}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border Padding="10" BackgroundColor="White">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20" />
+                            </Border.StrokeShape>
+                            <Grid RowDefinitions="auto,1,auto" RowSpacing="0">
+                                <Grid
+                                    x:DataType="models:Product"
+                                    ColumnDefinitions="auto,*,auto"
+                                    RowDefinitions="auto,auto">
+                                    <Image
+                                        Grid.RowSpan="2"
+                                        Margin="0,0,10,0"
+                                        MaximumHeightRequest="80"
+                                        MaximumWidthRequest="80"
+                                        Source="{Binding Photo}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        TextColor="Black" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontSize="Micro"
+                                        Text="{Binding Description}"
+                                        TextColor="Black" />
+                                    <Label
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"
+                                        Text="{Binding Price, StringFormat='R$ {0:F2}'}"
+                                        TextColor="Red"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
+                                <BoxView Grid.Row="1" Color="#cecece" />
+                                <Button
+                                    Grid.Row="2"
+                                    BackgroundColor="White"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=AddCartCommand}"
+                                    CommandParameter="{Binding .}"
+                                    FontAttributes="Bold"
+                                    Text="ADICIONAR AO CARRINHO"
+                                    TextColor="Red" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="0" VerticalOptions="End">
+            <Border
+                Padding="18"
+                BackgroundColor="White"
+                VerticalOptions="EndAndExpand">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,0,0" />
+                </Border.StrokeShape>
+
+                <Grid ColumnDefinitions="*,*,*">
+                    <Label
+                        Margin="20,0,0,0"
+                        FontFamily="FontAwesomeSolid"
+                        FontSize="Large"
+                        Text=""
+                        TextColor="Black" />
+                    <Label
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        Text="Ver carrinho:"
+                        TextColor="Black" />
+                    <Label
+                        Grid.Column="2"
+                        Margin="0,0,20,0"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding ProductsCart.Count}"
+                        TextColor="Black" />
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToCartItemsCommand}" NumberOfTapsRequired="1" />
+                </Border.GestureRecognizers>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>
